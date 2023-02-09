@@ -80,7 +80,7 @@ after testPrimitives: 0.90 false 58
    Press step-over to execute the three assignment statements in the method.
    The `testPrimitives` parameter variables change value, but not the variables in the `main` method:        
    ![primitives step over](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/primitives_step1.png)
-4. Step again to complete the `testPrimitives` method and return to the `main` method.
+4. Step-over again to complete the `testPrimitives` method and return to the `main` method.
    We can confirm that pass by value means the values stored in the `main` method variables
    remain the same.    
    ![primitives step out](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/primitives_step2.png)
@@ -147,9 +147,7 @@ before testPerson: Amir 30
 
 
 After returning to the `main` method, we see the `age`  has been updated,
-but `employee` still points to the same `Person` object in memory.  If Java
-implemented pass by reference, the `employee` variable would point to the
-50-year-old person named "Jie".
+but `employee` still points to the same `Person` object in memory. 
 
 ![person step5](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/person_step5.png) 
 
@@ -193,10 +191,11 @@ public class IntArray {
 
 ## Conclusion
 
-Pass by value means the argument value is copied into the parameter variable.
+Java uses pass by value for method parameter passing. Each time we call a method,
+the argument value is copied into the parameter variable.
 If the parameter is a reference type, the parameter points at the same object as the argument
-and thus is able to change the object's state.  Parameter reassignment is discouraged and usually not useful
-since it won't affect the value of the argument.
+and thus is able to change the object's state.  Parameter reassignment is discouraged
+and usually not useful since it won't affect the value of the argument.
 
 ## Resources
 
