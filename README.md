@@ -60,30 +60,40 @@ before testPrimitives: 0.90 false 58
 after testPrimitives: 0.90 false 58 
 ```
 
-1. Set a breakpoint in the `main` method on the line that calls `testPrimitives`, then launch the debugger.  
-   `testPrimitives(humidity, isRaining, temperature);`
-2. Press step-into to call the `testPrimitives` method, passing the argument values.
-   Notice the call stack adds a frame for the `testPrimitives` method, with the values from the
-   arguments (humidity, isRaining, temperature)  copied into the parameters (a, b, c).       
-   ![primitives step into](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/primitives_step0.png)
-3. Normally we would not reassign values to the parameter, but the method does so to demonstrate that changing
-   the parameter value will not affect the variables used as arguments.     
-   
-   ```java
-   public static void testPrimitives(double a, boolean b, int c) {
-       a = 0.45;
-       b = true;
-       c = 100;
-   }
-   ```  
+Set a breakpoint in the `main` method on the line that
+calls `testPrimitives`, then launch the debugger:
 
-   Press step-over to execute the three assignment statements in the method.
-   The `testPrimitives` parameter variables change value, but not the variables in the `main` method:        
-   ![primitives step over](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/primitives_step1.png)
-4. Step-over again to complete the `testPrimitives` method and return to the `main` method.
-   We can confirm that pass by value means the values stored in the `main` method variables
-   remain the same.    
-   ![primitives step out](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/primitives_step2.png)
+`testPrimitives(humidity, isRaining, temperature);`
+
+Press "Step Into" to call the `testPrimitives` method, passing the argument values.
+Notice the call stack adds a frame for the `testPrimitives` method, with the values from the
+arguments (humidity, isRaining, temperature)
+copied into the parameters (a, b, c).
+
+![primitives step into](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/primitives_step0.png)
+
+Normally we would not reassign values to the parameter, but the method does so to demonstrate that changing
+the parameter value will not affect the variables used as arguments.
+
+```java
+public static void testPrimitives(double a, boolean b, int c) {
+    a = 0.45;
+    b = true;
+    c = 100;
+}
+```  
+   
+Press "Step Over" to execute the three assignment statements in the method.
+The `testPrimitives` parameter variables change value, but not the
+variables in the `main` method:
+
+![primitives step over](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/primitives_step1.png)
+   
+Step-over again to complete the `testPrimitives` method and return to the `main` method.
+We can confirm that pass by value means the values stored in the `main` method variables
+remain the same.
+
+![primitives step out](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/primitives_step2.png)
 
 
 ## Passing a `Person` into a method
@@ -130,13 +140,17 @@ before testPerson: Amir 30
 ```
 
 
-1. Set a breakpoint in the `main` method on the line that calls `testPerson`, then launch the debugger.  
-   `testPerson(employee);`
-2. Press step-into to call the `testPerson` method, passing the `employee` variable as the argument.
-   Pass by value means the value stored in the argument `employee` (a memory address) will be copied
-   into the parameter `p`. As a result, both `employee` and `p` point at the same object.    
-   ![person step into](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/person_step0.png)
-3. Press step-over to execute each statement in the `testPerson` method:
+Set a breakpoint in the `main` method on the line that calls `testPerson(employee);`,
+then launch the debugger.
+
+Press "Step Into" to call the `testPerson` method, passing the `employee` variable as the argument.
+Pass by value means the value stored in the argument `employee` (a memory address) will be copied
+into the parameter `p`. As a result, both `employee` and `p` point at
+the same object.
+
+![person step into](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/person_step0.png)
+
+Press "Step Over" to execute each statement in the `testPerson` method:
 
 | Code                | Visualizer                                                                                                                                                                                                                                                                                                                                         |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -144,7 +158,6 @@ before testPerson: Amir 30
 | `p = new Person();` | ![person step2](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/person_step2.png) <br>Parameter <code>p</code> points to the new object.<br>Variable <code>employee</code>still points to the original object due to pass by value.<br>If Java used pass by reference, <code>employee</code>would also point to the new object. |
 | `p.name = "Jie";`   | ![person step3](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/person_step3.png) <br>The name of the new object is changed.                                                                                                                                                                                                    |
 | `p.age = 50;`       | ![person step4](https://curriculum-content.s3.amazonaws.com/6676/java-mod2-strings/person_step4.png) <br>The age of the new object is changed.                                                                                                                                                                                                     |
-
 
 After returning to the `main` method, we see the `age`  has been updated,
 but `employee` still points to the same `Person` object in memory. 
